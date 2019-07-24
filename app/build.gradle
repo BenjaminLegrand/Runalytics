@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion Versions.COMPILE_SDK
+    defaultConfig {
+        applicationId "fr.legrand.runalytics"
+        minSdkVersion Versions.MIN_SDK
+        targetSdkVersion Versions.TARGET_SDK
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation Libraries.KTX
+    implementation Libraries.KOTLIN_STDLIB
+    implementation Libraries.SUPPORT
+    implementation Libraries.ARCH_COMPONENTS
+    implementation Libraries.NAVIGATION
+    implementation Libraries.WORK_MANAGER
+    implementation Libraries.RX_JAVA_2
+    implementation Libraries.RX_KOTLIN
+
+    implementation Libraries.TIMBER
+    implementation Libraries.KOIN
+    implementation Libraries.LOCATION_SERVICES
+
+    implementation Libraries.ROOM
+    kapt Libraries.ROOM_PROCESSOR
+
+    testImplementation Libraries.JUNIT
+    testImplementation Libraries.ASSERTJ
+    testImplementation Libraries.KOIN_TEST
+    testImplementation Libraries.ROBOLETRIC
+    testImplementation Libraries.TEST_KTX
+}
