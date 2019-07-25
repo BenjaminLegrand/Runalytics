@@ -38,6 +38,7 @@ dependencies {
     implementation Libraries.TIMBER
     implementation Libraries.KOIN
     implementation Libraries.LOCATION_SERVICES
+    implementation Libraries.MP_ANDROID_CHART
 
     implementation Libraries.ROOM
     kapt Libraries.ROOM_PROCESSOR

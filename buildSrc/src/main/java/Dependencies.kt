@@ -38,6 +38,7 @@ object Versions {
     const val GSON = "2.8.5"
     const val LOCATION = "17.0.0"
     const val ROOM = "2.0.0"
+    const val MP_ANDROID_CHART = "v3.1.0"
 
     /**
      * Test versions
@@ -100,6 +101,7 @@ object Libraries {
     const val ROOM = "androidx.room:room-runtime:${Versions.ROOM}"
     const val ROOM_PROCESSOR = "androidx.room:room-compiler:${Versions.ROOM}"
     const val LOCATION_SERVICES = "com.google.android.gms:play-services-location:${Versions.LOCATION}"
+    const val MP_ANDROID_CHART = "com.github.PhilJay:MPAndroidChart:${Versions.MP_ANDROID_CHART}"
 }
 
 

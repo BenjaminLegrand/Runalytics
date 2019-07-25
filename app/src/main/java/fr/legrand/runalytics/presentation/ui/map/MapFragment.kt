@@ -1,7 +1,11 @@
 package fr.legrand.runalytics.presentation.ui.map
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import fr.legrand.runalytics.R
 import fr.legrand.runalytics.presentation.ui.base.BaseNavFragment
 import fr.legrand.runalytics.presentation.ui.map.navigator.MapFragmentNavigatorListener
@@ -15,6 +19,10 @@ class MapFragment : BaseNavFragment<MapFragmentNavigatorListener>() {
 
     private val viewModel: MapFragmentViewModel by viewModel()
 
+    private val distanceChartEntries = mutableListOf<Entry>()
+    private val speedChartEntries = mutableListOf<Entry>()
+    private val altitudeChartEntries = mutableListOf<Entry>()
+
     override fun getLayoutId() = R.layout.fragment_map
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,6 +30,18 @@ class MapFragment : BaseNavFragment<MapFragmentNavigatorListener>() {
 
         viewModel.traveledDistanceLiveData.observeSafe(this) {
             fragment_map_traveled_distance.text = it.toString()
+
+            distanceChartEntries.add(Entry(it.getFloatTimestamp(), it.getFullDistanceKm()))
+            altitudeChartEntries.add(Entry(it.getFloatTimestamp(), it.getAltitudeDiff()))
+            speedChartEntries.add(Entry(it.getFloatTimestamp(), it.getSpeed()))
+            fragment_map_chart.apply {
+                data = LineData(
+                    LineDataSet(distanceChartEntries, "Distance").apply { color = Color.RED },
+                    LineDataSet(speedChartEntries, "Speed").apply { color = Color.GREEN },
+                    LineDataSet(altitudeChartEntries, "Altitude +").apply { color = Color.BLUE }
+                )
+                invalidate()
+            }
         }
 
     }

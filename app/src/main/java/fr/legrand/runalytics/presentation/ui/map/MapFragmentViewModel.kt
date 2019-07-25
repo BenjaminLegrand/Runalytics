@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import fr.legrand.daifen.application.presentation.base.SingleLiveEvent
 import fr.legrand.runalytics.data.repository.LocationRepository
+import fr.legrand.runalytics.presentation.ui.map.item.RALocationViewDataWrapper
 import fr.legrand.runalytics.presentation.utils.addToComposite
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
@@ -14,9 +15,8 @@ class MapFragmentViewModel(private val locationRepository: LocationRepository) :
 
     private val disposable = CompositeDisposable()
     val errorEvent = SingleLiveEvent<Throwable>()
-    val traveledDistanceLiveData = MutableLiveData<Float>()
+    val traveledDistanceLiveData = MutableLiveData<RALocationViewDataWrapper>()
 
-    private var traveledDistance = 0f
 
     init {
         startLocationComputation()
@@ -32,8 +32,7 @@ class MapFragmentViewModel(private val locationRepository: LocationRepository) :
                 errorEvent.postValue(it)
             },
             onNext = {
-                traveledDistance += it
-                traveledDistanceLiveData.postValue(traveledDistance)
+                traveledDistanceLiveData.postValue(RALocationViewDataWrapper(it))
             }
         ).addToComposite(disposable)
     }
