@@ -7,6 +7,8 @@ import io.reactivex.Observable
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
+private const val M_TO_KM = 1000
+
 class LocationRepository(
     private val locationManager: LocationManager
 ) {
@@ -21,20 +23,23 @@ class LocationRepository(
                 val distance = if (lastLocation == null) 0f else location.distanceTo(lastLocation)
                 val fullDistance =
                     if (lastLocation == null) 0f else currentRALocation.fullDistance + distance
-                val currentDistance =
+                val currentSpeed =
                     if (lastLocation == null) 0f else distance / it.time(TimeUnit.SECONDS)
+                val currentKmTime =
+                    if (lastLocation == null || distance == 0f) Int.MAX_VALUE else (it.time(TimeUnit.SECONDS) * M_TO_KM / distance).toInt()
                 val timestamp =
                     if (lastLocation == null) 0L else currentRALocation.timestamp + it.time()
                 val fullAltitudeDiff = if (lastLocation == null) 0f else
                     currentRALocation.fullAltitudeDiff + location.altitude.toFloat() - currentRALocation.altitude
                 lastLocation = location
                 currentRALocation = currentRALocation.copy(
-                    currentSpeed = currentDistance,
+                    currentSpeed = currentSpeed,
                     lastDistance = distance,
                     fullDistance = fullDistance,
                     altitude = location.altitude.toFloat(),
                     fullAltitudeDiff = fullAltitudeDiff,
-                    timestamp = timestamp
+                    timestamp = timestamp,
+                    currentKmTime = currentKmTime
                 )
                 currentRALocation
             }
