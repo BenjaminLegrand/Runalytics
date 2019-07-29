@@ -4,7 +4,8 @@ import androidx.navigation.findNavController
 import fr.legrand.runalytics.presentation.ui.base.BaseNavActivity
 import fr.legrand.runalytics.presentation.ui.main.MainActivity
 import fr.legrand.runalytics.presentation.ui.main.navigator.MainNavigator
-import fr.legrand.runalytics.presentation.ui.map.navigator.MapFragmentNavigatorListener
+import fr.legrand.runalytics.presentation.ui.session.list.navigator.SessionListFragmentNavigatorListener
+import fr.legrand.runalytics.presentation.ui.session.running.navigator.SessionFragmentNavigatorListener
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -16,7 +17,15 @@ val mainActivityModule = module {
             activity.findNavController(activity.getNavHostId())
         }
 
-        scoped<MapFragmentNavigatorListener> { (activity: BaseNavActivity) ->
+        scoped<SessionFragmentNavigatorListener> { (activity: BaseNavActivity) ->
+            get<MainNavigator>(parameters = {
+                parametersOf(
+                    activity
+                )
+            })
+        }
+
+        scoped<SessionListFragmentNavigatorListener> { (activity: BaseNavActivity) ->
             get<MainNavigator>(parameters = {
                 parametersOf(
                     activity

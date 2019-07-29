@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/main_activity_graph"
-            app:startDestination="@id/mapFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity_graph"
+    app:startDestination="@id/sessionListFragment">
 
     <fragment
-            android:id="@+id/mapFragment"
-            android:name="fr.legrand.runalytics.presentation.ui.map.MapFragment"
-            android:label="MapFragment">
+        android:id="@+id/sessionFragment"
+        android:name="fr.legrand.runalytics.presentation.ui.session.running.SessionFragment"
+        android:label="sessionFragment"/>
+
+    <fragment
+        android:id="@+id/sessionListFragment"
+        android:name="fr.legrand.runalytics.presentation.ui.session.list.SessionListFragment"
+        android:label="sessionListFragment">
+        <action
+            android:id="@+id/action_sessionListFragment_to_sessionFragment"
+            app:destination="@id/sessionFragment" />
     </fragment>
 </navigation>

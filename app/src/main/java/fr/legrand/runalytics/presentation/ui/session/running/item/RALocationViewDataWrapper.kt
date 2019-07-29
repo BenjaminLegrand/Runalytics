@@ -1,4 +1,4 @@
-package fr.legrand.runalytics.presentation.ui.map.item
+package fr.legrand.runalytics.presentation.ui.session.running.item
 
 import fr.legrand.runalytics.data.model.RALocation
 

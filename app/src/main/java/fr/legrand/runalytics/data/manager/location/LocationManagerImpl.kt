@@ -1,9 +1,8 @@
-package fr.legrand.runalytics.data.location
+package fr.legrand.runalytics.data.manager.location
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
-import android.os.Looper
 import com.google.android.gms.location.*
 import fr.legrand.runalytics.data.values.LocationValues
 import io.reactivex.Observable
@@ -46,4 +45,8 @@ class LocationManagerImpl(context: Context) : LocationManager {
         }.observeOn(Schedulers.io()).doOnDispose {
             locationClient.removeLocationUpdates(locCallback)
         }
+
+    override fun stopLocationUpdates() {
+        locationClient.removeLocationUpdates(locCallback)
+    }
 }

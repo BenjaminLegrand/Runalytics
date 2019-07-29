@@ -37,6 +37,7 @@ dependencies {
 
     implementation Libraries.TIMBER
     implementation Libraries.KOIN
+    implementation Libraries.GSON
     implementation Libraries.LOCATION_SERVICES
     implementation Libraries.MP_ANDROID_CHART
 
