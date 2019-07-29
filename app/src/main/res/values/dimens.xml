@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="base_margin">16dp</dimen>
-    <dimen name="fab_margin">36dp</dimen>
+    <dimen name="base_double_margin">16dp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="base_margin">8dp</dimen>
+    <dimen name="base_separator_height">0.5dp</dimen>
+    <dimen name="base_padding">8dp</dimen>
 </resources>

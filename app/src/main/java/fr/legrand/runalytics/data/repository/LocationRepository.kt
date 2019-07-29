@@ -75,7 +75,8 @@ class LocationRepository(
     }
 
     fun getAllSessions(): Single<List<Session>> = Single.defer {
-        Single.just(sessionDBEntityDataMapper.transformEntity(storageManager.getAllSessions()))
+        Single.just(sessionDBEntityDataMapper.transformEntity(storageManager.getAllSessions()).filter { it.locations.isNotEmpty() })
+
     }
 
 }

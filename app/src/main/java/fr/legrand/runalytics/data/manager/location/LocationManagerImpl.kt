@@ -14,7 +14,7 @@ class LocationManagerImpl(context: Context) : LocationManager {
     private val locationClient = LocationServices.getFusedLocationProviderClient(context)
     private val settingsClient = LocationServices.getSettingsClient(context)
 
-    private lateinit var locCallback: LocationCallback
+    private var locCallback: LocationCallback? = null
 
     @SuppressLint("MissingPermission")
     override fun requestLocationUpdates(): Observable<Location> =
@@ -47,6 +47,8 @@ class LocationManagerImpl(context: Context) : LocationManager {
         }
 
     override fun stopLocationUpdates() {
-        locationClient.removeLocationUpdates(locCallback)
+        locCallback?.let {
+            locationClient.removeLocationUpdates(it)
+        }
     }
 }
