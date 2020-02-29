@@ -29,4 +29,9 @@ class SessionLocationListAdapter : RecyclerView.Adapter<SessionLocationViewHolde
         locationList.add(location)
         notifyItemInserted(locationList.size - 1)
     }
+
+    fun resetList() {
+        locationList.clear()
+        notifyDataSetChanged()
+    }
 }

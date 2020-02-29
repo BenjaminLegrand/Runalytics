@@ -21,6 +21,11 @@ class SessionListFragment : BaseNavFragment<SessionListFragmentNavigatorListener
 
     override fun getLayoutId() = R.layout.fragment_session_list
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.getAllSessions()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

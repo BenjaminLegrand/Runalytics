@@ -2,6 +2,7 @@ package fr.legrand.runalytics.data.repository
 
 import android.location.Location
 import fr.legrand.runalytics.data.component.LogComponent
+import fr.legrand.runalytics.data.exception.EmptySessionException
 import fr.legrand.runalytics.data.manager.location.LocationManager
 import fr.legrand.runalytics.data.manager.storage.StorageManager
 import fr.legrand.runalytics.data.mapper.SessionDBEntityDataMapper
@@ -28,6 +29,8 @@ class LocationRepository(
     private var currentSession = Session()
 
     fun startLocationComputation(): Observable<RALocation> = Observable.defer {
+        currentSession = Session()
+        currentRALocation = RALocation()
         currentSession.id = System.currentTimeMillis()
         currentSession.startDate = System.currentTimeMillis()
         logComponent.startSession(currentSession.id)
@@ -80,6 +83,9 @@ class LocationRepository(
     }
 
     fun saveCurrentSession(): Completable = Completable.defer {
+        if (currentSession.locations.isEmpty()) {
+            throw EmptySessionException()
+        }
         logComponent.i("Saving session : $currentSession")
         storageManager.saveSession(sessionDBEntityDataMapper.transform(currentSession))
         currentSession = Session()

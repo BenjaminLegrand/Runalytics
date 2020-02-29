@@ -44,16 +44,6 @@ class SessionFragmentViewModel(
         ).addToComposite(disposable)
     }
 
-    private fun startSessionTimer() {
-        locationRepository.startSessionTimer().subscribeOn(Schedulers.io()).subscribeBy(
-            onError = {
-                errorEvent.postValue(it)
-            },
-            onNext = {
-                sessionTimer.postValue(TimeUtils.extractTime(it))
-            }
-        ).addToComposite(disposable)
-    }
 
     fun stopLocationComputation() {
         disposable.clear()
@@ -75,4 +65,16 @@ class SessionFragmentViewModel(
             }
         ).addToComposite(disposable)
     }
+
+    private fun startSessionTimer() {
+        locationRepository.startSessionTimer().subscribeOn(Schedulers.io()).subscribeBy(
+            onError = {
+                errorEvent.postValue(it)
+            },
+            onNext = {
+                sessionTimer.postValue(TimeUtils.extractTime(it))
+            }
+        ).addToComposite(disposable)
+    }
+
 }

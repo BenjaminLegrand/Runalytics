@@ -9,6 +9,7 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import fr.legrand.runalytics.R
+import fr.legrand.runalytics.presentation.component.error.ErrorDisplayComponent
 import fr.legrand.runalytics.presentation.ui.base.BaseNavFragment
 import fr.legrand.runalytics.presentation.ui.session.running.item.SessionLocationListAdapter
 import fr.legrand.runalytics.presentation.ui.session.running.navigator.SessionFragmentNavigatorListener
@@ -25,6 +26,7 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
 
     private val viewModel: SessionFragmentViewModel by viewModel()
     private val sessionLocationListAdapter: SessionLocationListAdapter by inject()
+    private val errorDisplayComponent: ErrorDisplayComponent by inject()
 
     private val distanceChartEntries = mutableListOf<Entry>()
     private val speedChartEntries = mutableListOf<Entry>()
@@ -43,7 +45,7 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             }
         fragment_session_data_list.adapter = sessionLocationListAdapter
 
-        viewModel.traveledDistanceLiveData.observeSafe(this) {
+        viewModel.traveledDistanceLiveData.observeSafe(viewLifecycleOwner) {
             distanceChartEntries.add(Entry(it.getFloatTimestamp(), it.getFullDistanceKm()))
             altitudeChartEntries.add(Entry(it.getFloatTimestamp(), it.getAltitudeDiff()))
             speedChartEntries.add(Entry(it.getFloatTimestamp(), it.getSpeed()))
@@ -59,11 +61,15 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             sessionLocationListAdapter.addLocation(it)
         }
 
-        viewModel.sessionSaved.observe(this) {
+        viewModel.sessionSaved.observe(viewLifecycleOwner) {
             navigatorListener.onSessionFinished()
         }
 
-        viewModel.sessionTimer.observeSafe(this) {
+        viewModel.errorEvent.observeSafe(viewLifecycleOwner) {
+            errorDisplayComponent.displayError(requireActivity(), it)
+        }
+
+        viewModel.sessionTimer.observeSafe(viewLifecycleOwner) {
             fragment_session_duration_text.text = requireContext().getString(
                 R.string.session_duration_format,
                 it.first,
@@ -72,7 +78,10 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             )
         }
 
-        fragment_session_start_button.setOnClickListener { viewModel.startLocationComputation() }
+        fragment_session_start_button.setOnClickListener {
+            sessionLocationListAdapter.resetList()
+            viewModel.startLocationComputation()
+        }
         fragment_session_stop_button.setOnClickListener { viewModel.stopLocationComputation() }
         fragment_session_save_button.setOnClickListener { viewModel.saveCurrentSession() }
 

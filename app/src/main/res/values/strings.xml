@@ -10,4 +10,6 @@
     <string name="view_session_duration_ms_format">Durée : %02dm %02ds</string>
     <string name="view_session_duration_s_format">Durée : %02ds</string>
     <string name="unknown_duration">Inconnue</string>
+    <string name="empty_session_error">Impossible d\'enregistrer une session vide</string>
+    <string name="default_text_error">Une erreur s\'est produite</string>
 </resources>

@@ -10,17 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="@dimen/base_double_margin"
         android:textAppearance="@style/Theme.Runalytics.Text.Headline"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_data_top_barrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="00:58:45" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/fragment_session_data_top_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="fragment_session_chart,fragment_session_data_list" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/fragment_session_chart"

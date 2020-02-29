@@ -17,10 +17,6 @@ class SessionListFragmentViewModel(private val locationRepository: LocationRepos
     val errorEvent = SingleLiveEvent<Throwable>()
     val sessionList = MutableLiveData<List<SessionViewDataWrapper>>()
 
-    init {
-        getAllSessions()
-    }
-
     override fun onCleared() {
         disposable.clear()
     }
@@ -31,7 +27,7 @@ class SessionListFragmentViewModel(private val locationRepository: LocationRepos
                 errorEvent.postValue(it)
             },
             onSuccess = {
-                sessionList.postValue(it.map { SessionViewDataWrapper(it) })
+                sessionList.postValue(it.reversed().map { SessionViewDataWrapper(it) })
             }
         ).addToComposite(disposable)
     }
