@@ -1,5 +1,7 @@
 package fr.legrand.runalytics.data.di
 
+import fr.legrand.runalytics.data.component.LogComponent
+import fr.legrand.runalytics.data.component.LogComponentImpl
 import fr.legrand.runalytics.data.manager.location.LocationManager
 import fr.legrand.runalytics.data.manager.location.LocationManagerImpl
 import fr.legrand.runalytics.data.manager.storage.StorageManager
@@ -10,11 +12,11 @@ import fr.legrand.runalytics.data.repository.LocationRepository
 import org.koin.dsl.module
 
 val managerModule = module {
-    single<LocationManager> { LocationManagerImpl(get()) }
+    single<LocationManager> { LocationManagerImpl(get(), get()) }
     single<StorageManager> { StorageManagerImpl(get()) }
 }
 val repositoryModule = module {
-    single { LocationRepository(get(), get(), get()) }
+    single { LocationRepository(get(), get(), get(), get()) }
 }
 
 val mapperModule = module {
@@ -28,6 +30,7 @@ val generalModule = module {
 }
 
 val componentModule = module {
+    single<LogComponent> { LogComponentImpl() }
 }
 
 val dataModules =

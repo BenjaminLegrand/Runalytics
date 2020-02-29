@@ -13,3 +13,11 @@ fun View.hide() {
 fun View.invisible() {
     visibility = View.INVISIBLE
 }
+
+fun View.setVisible(visible: Boolean, hiddenState: Int = View.GONE) {
+    when {
+        visible -> show()
+        hiddenState == View.GONE -> hide()
+        hiddenState == View.INVISIBLE -> invisible()
+    }
+}

@@ -3,4 +3,11 @@
     <string name="start">Démarrer</string>
     <string name="stop">Arrêter</string>
     <string name="save">Enregistrer</string>
+    <string name="fragment_session_chart_switch">Vue graphique</string>
+    <string name="session_location_speed_format">%.1f km/h</string>
+    <string name="session_duration_format">%02d:%02d:%02d</string>
+    <string name="view_session_duration_hms_format">Durée : %02dh %02dm %02ds</string>
+    <string name="view_session_duration_ms_format">Durée : %02dm %02ds</string>
+    <string name="view_session_duration_s_format">Durée : %02ds</string>
+    <string name="unknown_duration">Inconnue</string>
 </resources>

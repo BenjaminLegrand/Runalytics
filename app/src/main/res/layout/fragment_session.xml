@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fragment_session_duration_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="@style/Theme.Runalytics.Text.Headline"
+        app:layout_constraintBottom_toTopOf="@id/fragment_session_data_top_barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="00:58:45" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/fragment_session_data_top_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="fragment_session_chart,fragment_session_data_list" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/fragment_session_chart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/base_double_margin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/fragment_session_chart_switch"
+        app:layout_constraintTop_toBottomOf="@id/fragment_session_duration_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_session_data_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/base_double_margin"
+        app:layout_constraintBottom_toTopOf="@id/fragment_session_chart_switch"
+        app:layout_constraintTop_toBottomOf="@id/fragment_session_duration_text"
+        tools:listitem="@layout/view_session_location_item" />
+
+
+    <TextView
+        android:id="@+id/fragment_session_chart_switch_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/base_double_margin"
+        android:text="@string/fragment_session_chart_switch"
+        android:textAppearance="@style/Theme.Runalytics.Text.Large"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_start_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/fragment_session_chart_switch"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Switch
+        android:id="@+id/fragment_session_chart_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/base_double_margin"
+        android:theme="@style/Theme.Runalytics.Switch"
+        app:layout_constraintBottom_toTopOf="@id/fragment_session_start_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_session_chart_switch_text" />
 
     <Button
         android:id="@+id/fragment_session_start_button"
@@ -19,8 +71,7 @@
         android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fragment_session_stop_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_chart" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/fragment_session_stop_button"
@@ -30,8 +81,7 @@
         android:text="@string/stop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fragment_session_save_button"
-        app:layout_constraintStart_toEndOf="@id/fragment_session_start_button"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_chart" />
+        app:layout_constraintStart_toEndOf="@id/fragment_session_start_button" />
 
     <Button
         android:id="@+id/fragment_session_save_button"
@@ -41,6 +91,5 @@
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/fragment_session_stop_button"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_chart" />
+        app:layout_constraintStart_toEndOf="@id/fragment_session_stop_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

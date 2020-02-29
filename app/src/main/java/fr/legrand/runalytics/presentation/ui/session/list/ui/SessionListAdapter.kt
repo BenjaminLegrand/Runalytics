@@ -12,16 +12,13 @@ class SessionListAdapter : RecyclerView.Adapter<SessionListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SessionListViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_session_list_item, parent, false)
-        return SessionListViewHolder(
-            parent.context,
-            view
-        )
+        return SessionListViewHolder(view)
     }
 
     override fun getItemCount() = sessionList.size
 
     override fun onBindViewHolder(holder: SessionListViewHolder, position: Int) {
-       holder.bindItem(sessionList[position])
+        holder.bindItem(sessionList[position])
     }
 
     fun setItems(items: List<SessionViewDataWrapper>) {
