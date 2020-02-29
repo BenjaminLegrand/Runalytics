@@ -4,7 +4,7 @@ import android.os.Environment
 import timber.log.Timber
 import java.io.File
 
-private const val SESSION_LOG_FILE_FORMAT = "Runalytics_session_%d.log"
+private const val SESSION_LOG_FILE_FORMAT = "runalytics/session_%d.log"
 private const val SESSION_LOG_ERROR_FORMAT = "ERROR : %s\n"
 private const val SESSION_LOG_INFO_FORMAT = "INFO : %s\n"
 
@@ -34,6 +34,7 @@ class LogComponentImpl : LogComponent {
             )}"
         )
         if (!currentSessionLogFile!!.exists()) {
+            currentSessionLogFile!!.parentFile.mkdirs()
             currentSessionLogFile!!.createNewFile()
         }
     }

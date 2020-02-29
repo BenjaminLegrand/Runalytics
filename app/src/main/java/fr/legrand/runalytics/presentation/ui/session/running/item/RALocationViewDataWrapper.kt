@@ -9,6 +9,7 @@ private const val M_TO_DAM = 10
 private const val KMH_TO_MS = 3.6
 
 data class RALocationViewDataWrapper(private val location: RALocation) {
+
     fun getFullDistanceKm() = location.fullDistance / M_TO_DAM
 
     fun getFloatTimestamp() = (location.timestamp / MS_TO_S).toFloat()
@@ -16,5 +17,5 @@ data class RALocationViewDataWrapper(private val location: RALocation) {
     fun getSpeed() = location.currentSpeed
 
     fun getSpeedText(context: Context): String =
-        context.getString(R.string.session_location_speed_format, location.currentSpeed * KMH_TO_MS)
+        context.getString(R.string.running_session_location_speed_format, location.currentSpeed * KMH_TO_MS)
 }

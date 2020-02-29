@@ -13,9 +13,7 @@ import fr.legrand.runalytics.presentation.component.error.ErrorDisplayComponent
 import fr.legrand.runalytics.presentation.ui.base.BaseNavFragment
 import fr.legrand.runalytics.presentation.ui.session.running.item.SessionLocationListAdapter
 import fr.legrand.runalytics.presentation.ui.session.running.navigator.SessionFragmentNavigatorListener
-import fr.legrand.runalytics.presentation.utils.observe
-import fr.legrand.runalytics.presentation.utils.observeSafe
-import fr.legrand.runalytics.presentation.utils.setVisible
+import fr.legrand.runalytics.presentation.utils.*
 import kotlinx.android.synthetic.main.fragment_session.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,11 +39,10 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             LinearLayoutManager(requireContext()).apply {
                 orientation = RecyclerView.VERTICAL
                 reverseLayout = true
-                stackFromEnd = true
             }
         fragment_session_data_list.adapter = sessionLocationListAdapter
 
-        viewModel.traveledDistanceLiveData.observeSafe(viewLifecycleOwner) {
+        viewModel.currentLocation.observeSafe(viewLifecycleOwner) {
             distanceChartEntries.add(Entry(it.getFloatTimestamp(), it.getFullDistanceKm()))
             altitudeChartEntries.add(Entry(it.getFloatTimestamp(), it.getAltitudeDiff()))
             speedChartEntries.add(Entry(it.getFloatTimestamp(), it.getSpeed()))
@@ -61,6 +58,38 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             sessionLocationListAdapter.addLocation(it)
         }
 
+        viewModel.traveledDistance.observeSafe(viewLifecycleOwner) {
+            fragment_session_distance_text.text =
+                requireContext().getString(R.string.running_session_distance_format, it)
+        }
+
+        viewModel.currentKmTime.observeSafe(viewLifecycleOwner) {
+            if (it > 0) {
+                fragment_session_current_km_duration_text.text =
+                    requireContext().getString(
+                        R.string.running_session_current_km_time_format,
+                        TimeUtils.extractTimeText(requireContext(), it)
+                    )
+                fragment_session_current_km_duration_text.show()
+            } else {
+                fragment_session_current_km_duration_text.hide()
+            }
+        }
+
+        viewModel.lastKmTime.observeSafe(viewLifecycleOwner) {
+            if (it > 0) {
+                fragment_session_last_km_duration_text.text =
+                    requireContext().getString(
+                        R.string.running_session_last_km_time_format,
+                        TimeUtils.extractTimeText(requireContext(), it)
+                    )
+                fragment_session_last_km_duration_text.show()
+            } else {
+                fragment_session_last_km_duration_text.hide()
+            }
+
+        }
+
         viewModel.sessionSaved.observe(viewLifecycleOwner) {
             navigatorListener.onSessionFinished()
         }
@@ -71,7 +100,7 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
 
         viewModel.sessionTimer.observeSafe(viewLifecycleOwner) {
             fragment_session_duration_text.text = requireContext().getString(
-                R.string.session_duration_format,
+                R.string.running_session_duration_format,
                 it.first,
                 it.second,
                 it.third
@@ -87,7 +116,7 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
 
         fragment_session_chart_switch.setOnCheckedChangeListener { _, checked ->
             fragment_session_chart.setVisible(checked)
-            fragment_session_data_list.setVisible(checked)
+            fragment_session_data_list.setVisible(!checked)
         }
     }
 

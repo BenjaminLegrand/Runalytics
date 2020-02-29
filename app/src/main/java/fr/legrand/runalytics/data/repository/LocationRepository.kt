@@ -47,7 +47,7 @@ class LocationRepository(
                 val currentKmTime =
                     if (lastLocation == null || distance == 0f) LocationValues.NO_TIME else (it.time(
                         TimeUnit.SECONDS
-                    ) * M_TO_KM / distance).toInt()
+                    ) * M_TO_KM / distance).toLong()
                 val timestamp =
                     if (lastLocation == null) 0L else currentRALocation.timestamp + it.time()
                 val fullAltitudeDiff = if (lastLocation == null) 0f else

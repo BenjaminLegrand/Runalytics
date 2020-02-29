@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import fr.legrand.runalytics.R
+import timber.log.Timber
 
 class ErrorDisplayComponentSnackbar
 constructor(
@@ -28,6 +29,7 @@ constructor(
                 .setTextColor(ContextCompat.getColor(activity, R.color.white))
             show()
         }
+        Timber.e(throwable)
     }
 
 }

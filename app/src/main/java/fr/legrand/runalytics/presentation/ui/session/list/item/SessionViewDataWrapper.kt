@@ -16,23 +16,8 @@ class SessionViewDataWrapper(
 ) {
     fun getDurationText(context: Context): String =
         session.locations.lastOrNull()?.timestamp?.div(MS_TO_S)?.let {
-            val time = TimeUtils.extractTime(it)
-            return@let if (time.first == 0L && time.second == 0L) {
-                context.getString(
-                    R.string.view_session_duration_s_format,
-                    time.third
-                )
-            } else if (time.first == 0L) {
-                context.getString(
-                    R.string.view_session_duration_ms_format,
-                    time.second, time.third
-                )
-            } else {
-                context.getString(
-                    R.string.view_session_duration_hms_format,
-                    time.first, time.second, time.third
-                )
-            }
+            val time = TimeUtils.extractTimeText(context, it)
+            return@let context.getString(R.string.view_session_list_item_duration_format, time)
         } ?: context.getString(R.string.unknown_duration)
 
     @SuppressLint("SimpleDateFormat")

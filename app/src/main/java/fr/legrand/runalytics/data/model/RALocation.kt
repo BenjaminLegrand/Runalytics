@@ -7,5 +7,5 @@ data class RALocation(
     val altitude: Float = 0f,
     val fullAltitudeDiff: Float = 0f,
     val timestamp: Long = 0,
-    val currentKmTime: Int = 0
+    val currentKmTime: Long = 0
 )
