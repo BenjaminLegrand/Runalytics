@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import fr.legrand.runalytics.R
 import fr.legrand.runalytics.data.model.Session
+import fr.legrand.runalytics.presentation.ui.session.running.item.RALocationViewDataWrapper
 import fr.legrand.runalytics.presentation.utils.TimeUtils
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,13 +15,19 @@ private const val MS_TO_S = 1000
 class SessionViewDataWrapper(
     private val session: Session
 ) {
-    fun getDurationText(context: Context): String =
-        session.locations.lastOrNull()?.timestamp?.div(MS_TO_S)?.let {
-            val time = TimeUtils.extractTimeText(context, it)
-            return@let context.getString(R.string.view_session_list_item_duration_format, time)
-        } ?: context.getString(R.string.unknown_duration)
+
+    private val locations = session.locations.map { RALocationViewDataWrapper(it) }
+
+    fun getDurationText(context: Context): String {
+        val time = TimeUtils.extractTimeText(context, (session.endDate - session.startDate) / MS_TO_S)
+        return context.getString(R.string.view_session_list_item_duration_format, time)
+    }
 
     @SuppressLint("SimpleDateFormat")
     fun getStartDateText(): String = SimpleDateFormat(DATE_FORMAT).format(Date(session.startDate))
+
+    fun getLastLocation(): RALocationViewDataWrapper? = locations.lastOrNull()
+    fun getFullDistanceKm(): Float = session.traveledDistance
+    fun getAltitudeDiff(): Float = session.altitudeDiff
 
 }

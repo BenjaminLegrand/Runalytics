@@ -28,13 +28,10 @@ class RALocationDBEntityDataMapper {
     fun transform(model: RALocation): RALocationDBEntity {
         try {
             return RALocationDBEntity(
-                currentSpeed = model.currentSpeed,
-                lastDistance = model.lastDistance,
-                fullDistance = model.fullDistance,
+                speed = model.speed,
+                distance = model.distance,
                 altitude = model.altitude,
-                fullAltitudeDiff = model.fullAltitudeDiff,
-                timestamp = model.timestamp,
-                currentKmTime = model.currentKmTime
+                timestamp = model.timestamp
             )
         } catch (e: Exception) {
             throw MappingException()
@@ -44,13 +41,10 @@ class RALocationDBEntityDataMapper {
     fun transform(db: RALocationDBEntity): RALocation {
         try {
             return RALocation(
-                currentSpeed = db.currentSpeed,
-                lastDistance = db.lastDistance,
-                fullDistance = db.fullDistance,
+                speed = db.speed,
+                distance = db.distance,
                 altitude = db.altitude,
-                fullAltitudeDiff = db.fullAltitudeDiff,
-                timestamp = db.timestamp,
-                currentKmTime = db.currentKmTime
+                timestamp = db.timestamp
             )
         } catch (e: Exception) {
             throw MappingException()

@@ -1,4 +1,4 @@
-package fr.legrand.runalytics.presentation.utils
+package fr.legrand.runalytics.data.utils
 
 import fr.legrand.runalytics.data.model.RALocation
 
@@ -12,7 +12,7 @@ object LocationUtils {
         var currentDistance = 0f
         var currentKmItems = mutableListOf<RALocation>()
         items.forEach {
-            currentDistance += it.lastDistance
+            currentDistance += it.distance
             if (currentDistance < KILOMETER_VALUE) {
                 currentKmItems.add(it)
             } else {

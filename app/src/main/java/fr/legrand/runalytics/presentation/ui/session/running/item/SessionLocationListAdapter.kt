@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.legrand.runalytics.R
 
+private const val MAX_DISPLAYED_LOCATIONS = 3
+
 class SessionLocationListAdapter : RecyclerView.Adapter<SessionLocationViewHolder>() {
 
     private val locationList = mutableListOf<RALocationViewDataWrapper>()
@@ -26,6 +28,10 @@ class SessionLocationListAdapter : RecyclerView.Adapter<SessionLocationViewHolde
     }
 
     fun addLocation(location: RALocationViewDataWrapper) {
+        if (locationList.size >= MAX_DISPLAYED_LOCATIONS) {
+            locationList.removeAt(0)
+            notifyItemRemoved(0)
+        }
         locationList.add(location)
         notifyItemInserted(locationList.size - 1)
     }

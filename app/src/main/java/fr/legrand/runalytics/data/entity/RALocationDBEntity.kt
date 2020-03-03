@@ -6,11 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class RALocationDBEntity(
     @PrimaryKey val id : Int = 0,
-    val currentSpeed: Float = 0f,
-    val lastDistance: Float = 0f,
-    val fullDistance: Float = 0f,
+    val speed: Float = 0f,
+    val distance: Float = 0f,
     val altitude: Float = 0f,
-    val fullAltitudeDiff: Float = 0f,
-    val timestamp: Long = 0,
-    val currentKmTime: Long = 0
+    val timestamp: Long = 0
 )

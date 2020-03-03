@@ -20,6 +20,10 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <style name="Theme.Runalytics.Text.Large.Error">
+        <item name="android:textColor">@color/text_color_error</item>
+    </style>
+
     <style name="Theme.Runalytics.Text.Medium" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/medium_text_size</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>

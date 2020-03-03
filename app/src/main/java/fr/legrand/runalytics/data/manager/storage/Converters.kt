@@ -7,13 +7,24 @@ import fr.legrand.runalytics.data.utils.fromJson
 
 class RoomConverters {
     @TypeConverter
-    fun stringListfromString(value: String): List<RALocationDBEntity> {
+    fun locationListFromString(value: String): List<RALocationDBEntity> {
         val array = Gson().fromJson<Array<RALocationDBEntity>>(value)
         return array.toList()
     }
 
     @TypeConverter
-    fun stringListToString(value: List<RALocationDBEntity>): String {
+    fun locationListToString(value: List<RALocationDBEntity>): String {
+        return Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun longListFromString(value: String): List<Long> {
+        val array = Gson().fromJson<Array<Long>>(value)
+        return array.toList()
+    }
+
+    @TypeConverter
+    fun longListToString(value: List<Long>): String {
         return Gson().toJson(value)
     }
 }

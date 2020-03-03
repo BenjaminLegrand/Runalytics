@@ -34,6 +34,9 @@ class SessionDBEntityDataMapper
                 model.id,
                 model.startDate,
                 model.endDate,
+                model.traveledDistance,
+                model.altitudeDiff,
+                model.kmTimeList,
                 raLocationDBEntityDataMapper.transformModel(model.locations)
             )
         } catch (e: Exception) {
@@ -47,6 +50,9 @@ class SessionDBEntityDataMapper
                 db.id,
                 db.startDate,
                 db.endDate,
+                db.traveledDistance,
+                db.altitudeDiff,
+                db.kmTimeList,
                 raLocationDBEntityDataMapper.transformEntity(db.locations).toMutableList()
             )
         } catch (e: Exception) {

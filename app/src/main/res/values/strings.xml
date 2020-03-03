@@ -20,6 +20,14 @@
     <string name="empty_session_error">Impossible d\'enregistrer une session vide</string>
     <string name="default_text_error">Une erreur s\'est produite</string>
     <string name="running_session_distance_format">%.2f km</string>
-    <string name="running_session_current_km_time_format">Km actuel : %s</string>
-    <string name="running_session_last_km_time_format">Dernier km : %s</string>
+    <string name="running_session_current_km_time_format">%s</string>
+    <string name="running_session_last_km_time_format">%s</string>
+    <string name="fragment_session_duration_label">Durée de la session</string>
+    <string name="fragment_session_distance_label">Distance parcourue</string>
+    <string name="fragment_session_current_km_duration_label">Temps estimé au kilomètre</string>
+    <string name="fragment_session_last_km_duration_label">Temps du dernier kilomètre</string>
+    <string name="fragment_session_data_list_label">Dernières vitesses</string>
+    <string name="fragment_session_low_accuracy_text">Précision de GPS insuffisante</string>
+    <string name="fragment_session_location_waiting_text">En attente de localisation</string>
+    <string name="fragment_session_low_speed_text">Vitesse insuffisante</string>
 </resources>
