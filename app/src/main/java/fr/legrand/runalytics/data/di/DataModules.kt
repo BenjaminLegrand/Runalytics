@@ -1,7 +1,7 @@
 package fr.legrand.runalytics.data.di
 
-import fr.legrand.runalytics.data.component.LogComponent
-import fr.legrand.runalytics.data.component.LogComponentImpl
+import fr.legrand.runalytics.data.component.log.LogComponent
+import fr.legrand.runalytics.data.component.log.LogComponentImpl
 import fr.legrand.runalytics.data.manager.location.LocationManager
 import fr.legrand.runalytics.data.manager.location.LocationManagerImpl
 import fr.legrand.runalytics.data.manager.storage.StorageManager

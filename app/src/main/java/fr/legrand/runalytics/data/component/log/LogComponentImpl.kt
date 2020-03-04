@@ -1,4 +1,4 @@
-package fr.legrand.runalytics.data.component
+package fr.legrand.runalytics.data.component.log
 
 import android.os.Environment
 import timber.log.Timber

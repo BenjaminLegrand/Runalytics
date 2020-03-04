@@ -1,7 +1,7 @@
 package fr.legrand.runalytics.data.repository
 
 import android.location.Location
-import fr.legrand.runalytics.data.component.LogComponent
+import fr.legrand.runalytics.data.component.log.LogComponent
 import fr.legrand.runalytics.data.exception.EmptySessionException
 import fr.legrand.runalytics.data.manager.location.LocationManager
 import fr.legrand.runalytics.data.manager.storage.StorageManager

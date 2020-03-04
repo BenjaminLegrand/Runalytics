@@ -70,7 +70,7 @@
 
     <style name="Theme.Runalytics.Text.Headline" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/headline_text_size</item>
-        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">sans-serif-black</item>
     </style>
 

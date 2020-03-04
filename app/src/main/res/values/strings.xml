@@ -30,4 +30,8 @@
     <string name="fragment_session_low_accuracy_text">Précision de GPS insuffisante</string>
     <string name="fragment_session_location_waiting_text">En attente de localisation</string>
     <string name="fragment_session_low_speed_text">Vitesse insuffisante</string>
+
+<!--    Session notification -->
+    <string name="notification_new_session">Nouvelle session démarrée !</string>
+    <string name="notification_session_running">Session en cours : %s</string>
 </resources>

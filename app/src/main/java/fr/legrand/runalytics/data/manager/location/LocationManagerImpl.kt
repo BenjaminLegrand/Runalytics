@@ -4,11 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
 import com.google.android.gms.location.*
-import fr.legrand.runalytics.data.component.LogComponent
+import fr.legrand.runalytics.data.component.log.LogComponent
 import fr.legrand.runalytics.data.values.LocationValues
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 
 class LocationManagerImpl(
     context: Context,

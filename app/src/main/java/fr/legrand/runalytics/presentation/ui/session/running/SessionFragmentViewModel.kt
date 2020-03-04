@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import fr.legrand.daifen.application.presentation.base.SingleLiveEvent
 import fr.legrand.runalytics.data.model.SessionState
 import fr.legrand.runalytics.data.repository.LocationRepository
+import fr.legrand.runalytics.presentation.component.background.BackgroundComponent
 import fr.legrand.runalytics.presentation.ui.session.list.item.SessionViewDataWrapper
 import fr.legrand.runalytics.presentation.utils.TimeUtils
 import fr.legrand.runalytics.presentation.utils.addToComposite
@@ -17,6 +18,7 @@ import kotlin.math.max
 private const val M_TO_KM = 1000
 
 class SessionFragmentViewModel(
+    private val backgroundComponent: BackgroundComponent,
     private val locationRepository: LocationRepository
 ) :
     ViewModel() {
@@ -31,13 +33,37 @@ class SessionFragmentViewModel(
     val currentKmTime = MutableLiveData<Long>()
     val lastKmTime = MutableLiveData<Long>()
 
+    init {
+        observeSession()
+        observeSessionTimer()
+    }
+
     override fun onCleared() {
+        backgroundComponent.stopSession()
         disposable.clear()
     }
 
-    fun startLocationComputation() {
-        startSessionTimer()
-        locationRepository.startLocationComputation().subscribeOn(Schedulers.io()).subscribeBy(
+    fun startSession() {
+        backgroundComponent.startSession()
+    }
+
+    fun stopLocationComputation() {
+        backgroundComponent.stopSession()
+    }
+
+    fun saveCurrentSession() {
+        locationRepository.saveCurrentSession().subscribeOn(Schedulers.io()).subscribeBy(
+            onError = {
+                errorEvent.postValue(it)
+            },
+            onComplete = {
+                sessionSaved.call()
+            }
+        ).addToComposite(disposable)
+    }
+
+    private fun observeSession() {
+        backgroundComponent.observeSession().subscribeBy(
             onError = {
                 errorEvent.postValue(it)
             },
@@ -59,29 +85,8 @@ class SessionFragmentViewModel(
         ).addToComposite(disposable)
     }
 
-    fun stopLocationComputation() {
-        disposable.clear()
-        locationRepository.stopLocationComputation().subscribeOn(Schedulers.io()).subscribeBy(
-            onError = {
-                errorEvent.postValue(it)
-            },
-            onComplete = {}
-        ).addToComposite(disposable)
-    }
-
-    fun saveCurrentSession() {
-        locationRepository.saveCurrentSession().subscribeOn(Schedulers.io()).subscribeBy(
-            onError = {
-                errorEvent.postValue(it)
-            },
-            onComplete = {
-                sessionSaved.call()
-            }
-        ).addToComposite(disposable)
-    }
-
-    private fun startSessionTimer() {
-        locationRepository.startSessionTimer().subscribeOn(Schedulers.io()).subscribeBy(
+    private fun observeSessionTimer() {
+        backgroundComponent.observeSessionTimer().subscribeBy(
             onError = {
                 errorEvent.postValue(it)
             },
