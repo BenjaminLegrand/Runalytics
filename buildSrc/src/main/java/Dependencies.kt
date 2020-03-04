@@ -18,7 +18,7 @@ object Versions {
     const val KTX = "1.0.1"
     const val CONSTRAINT = "1.1.3"
     const val APP_COMPAT = "1.0.2"
-    const val MATERIAL = "1.0.0"
+    const val MATERIAL = "1.1.0"
     const val ARCH_COMPONENTS = "2.0.0"
     const val NAVIGATION = "2.0.0"
     const val WORK_MANAGER = "2.1.0"

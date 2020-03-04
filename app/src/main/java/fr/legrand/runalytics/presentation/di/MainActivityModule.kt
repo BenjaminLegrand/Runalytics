@@ -3,6 +3,7 @@ package fr.legrand.runalytics.presentation.di
 import androidx.navigation.findNavController
 import fr.legrand.runalytics.presentation.ui.base.BaseNavActivity
 import fr.legrand.runalytics.presentation.ui.main.MainActivity
+import fr.legrand.runalytics.presentation.ui.main.navigator.MainActivityNavigatorListener
 import fr.legrand.runalytics.presentation.ui.main.navigator.MainNavigator
 import fr.legrand.runalytics.presentation.ui.session.list.navigator.SessionListFragmentNavigatorListener
 import fr.legrand.runalytics.presentation.ui.session.running.navigator.SessionFragmentNavigatorListener
@@ -26,6 +27,14 @@ val mainActivityModule = module {
         }
 
         scoped<SessionListFragmentNavigatorListener> { (activity: BaseNavActivity) ->
+            get<MainNavigator>(parameters = {
+                parametersOf(
+                    activity
+                )
+            })
+        }
+
+        scoped<MainActivityNavigatorListener> { (activity: BaseNavActivity) ->
             get<MainNavigator>(parameters = {
                 parametersOf(
                     activity

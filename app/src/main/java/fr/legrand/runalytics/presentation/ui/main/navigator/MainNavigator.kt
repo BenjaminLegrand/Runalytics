@@ -10,13 +10,22 @@ import fr.legrand.runalytics.presentation.ui.session.running.navigator.SessionFr
 class MainNavigator(
     private val navController: NavController,
     private val baseActivity: BaseActivity
-) : SessionFragmentNavigatorListener, SessionListFragmentNavigatorListener {
+) : SessionFragmentNavigatorListener, SessionListFragmentNavigatorListener,
+    MainActivityNavigatorListener {
 
     override fun startSession() {
         navController.navigate(SessionListFragmentDirections.actionSessionListFragmentToSessionFragment())
     }
 
     override fun onSessionFinished() {
-        navController.popBackStack()
+        if (!navController.navigateUp()) {
+            baseActivity.finish()
+        }
+    }
+
+    override fun onMainActivityBackPressed() {
+        if (!navController.navigateUp()) {
+            baseActivity.finish()
+        }
     }
 }

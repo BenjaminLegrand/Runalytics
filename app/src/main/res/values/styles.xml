@@ -1,17 +1,51 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Base light theme. -->
+    <style name="LightTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorError">@color/snackbar_error_background</item>
+
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/colorPrimaryDark</item>
 
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
         <item name="android:textColorSecondary">@android:color/secondary_text_light</item>
         <item name="android:textColorTertiary">@android:color/tertiary_text_light</item>
-        <item name="buttonStyle">@style/Theme.Runalytics.Button</item>
-        <item name="colorButtonNormal">?android:attr/colorPrimary</item>
+
+        <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
+    </style>
+
+    <!-- Base dark theme. -->
+    <style name="DarkTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorError">@color/snackbar_error_background</item>
+
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="colorOnBackground">@color/white</item>
+
+        <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
+        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
+        <item name="android:textColorTertiary">@android:color/tertiary_text_dark</item>
+
+        <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
     </style>
 
     <style name="Theme.Runalytics.Text.Large" parent="TextAppearance.AppCompat">
@@ -40,13 +74,12 @@
         <item name="android:fontFamily">sans-serif-black</item>
     </style>
 
-    <style name="Theme.Runalytics.Button" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
+    <style name="Theme.Runalytics.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
     <style name="Theme.Runalytics.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="colorAccent">?android:attr/colorPrimary</item>
     </style>
 
-    <dimen name="small_text_size">14sp</dimen>
 </resources>

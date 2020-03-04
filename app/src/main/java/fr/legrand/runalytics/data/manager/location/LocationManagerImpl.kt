@@ -33,7 +33,7 @@ class LocationManagerImpl(
                 LocationSettingsRequest.Builder().addLocationRequest(locRequest)
 
             settingsClient.checkLocationSettings(locSettingsBuilder.build()).addOnSuccessListener {
-                Timber.i(it.toString())
+                logComponent.i("Location settings : $it")
                 locCallback = object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult?) {
                         locationResult?.let {
@@ -48,8 +48,10 @@ class LocationManagerImpl(
             }
         }.observeOn(Schedulers.io()).doOnDispose {
             logComponent.i("Disposing locations")
-            locationClient.removeLocationUpdates(locCallback)
-        }
+            locCallback?.let {
+                locationClient.removeLocationUpdates(it)
+            }
+        }.unsubscribeOn(Schedulers.io())
 
     override fun stopLocationUpdates() {
         logComponent.i("Stopping locations")

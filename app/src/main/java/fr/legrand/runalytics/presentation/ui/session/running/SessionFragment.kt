@@ -62,8 +62,14 @@ class SessionFragment : BaseNavFragment<SessionFragmentNavigatorListener>() {
             fragment_session_last_km_duration_group.hide()
             fragment_session_data_list_group.hide()
             viewModel.startLocationComputation()
+            fragment_session_start_button.isEnabled = false
+            fragment_session_stop_button.isEnabled = true
         }
-        fragment_session_stop_button.setOnClickListener { viewModel.stopLocationComputation() }
+        fragment_session_stop_button.setOnClickListener {
+            viewModel.stopLocationComputation()
+            fragment_session_start_button.isEnabled = true
+            fragment_session_stop_button.isEnabled = false
+        }
         fragment_session_save_button.setOnClickListener { viewModel.saveCurrentSession() }
 
         fragment_session_chart_switch.setOnCheckedChangeListener { _, checked ->
