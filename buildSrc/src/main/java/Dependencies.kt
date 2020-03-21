@@ -18,7 +18,7 @@ object Versions {
     const val KTX = "1.0.1"
     const val CONSTRAINT = "1.1.3"
     const val APP_COMPAT = "1.0.2"
-    const val MATERIAL = "1.0.0"
+    const val MATERIAL = "1.1.0"
     const val ARCH_COMPONENTS = "2.0.0"
     const val NAVIGATION = "2.0.0"
     const val WORK_MANAGER = "2.1.0"
@@ -29,12 +29,7 @@ object Versions {
     const val KOIN = "2.0.1"
     const val RX_JAVA_2 = "2.2.10"
     const val RX_KOTLIN = "2.3.0"
-
-    const val GLIDE = "4.9.0"
     const val TIMBER = "4.7.1"
-    const val RETROFIT = "2.6.0"
-    const val OK_HTTP = "3.12.1"
-    const val JSPOON = "1.3.2"
     const val GSON = "2.8.5"
     const val LOCATION = "17.0.0"
     const val ROOM = "2.0.0"
@@ -95,6 +90,7 @@ object Libraries {
 
     const val RX_JAVA_2 = "io.reactivex.rxjava2:rxjava:${Versions.RX_JAVA_2}"
     const val RX_KOTLIN = "io.reactivex.rxjava2:rxkotlin:${Versions.RX_KOTLIN}"
+    const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
 
 
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"

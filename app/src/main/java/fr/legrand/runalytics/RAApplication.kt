@@ -16,6 +16,5 @@ class RAApplication : Application() {
             // modules
             modules((presentationModules + dataModules).toList())
         }
-        Timber.plant(Timber.DebugTree())
     }
 }
