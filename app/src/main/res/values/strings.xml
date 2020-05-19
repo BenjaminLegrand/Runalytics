@@ -34,4 +34,8 @@
 <!--    Session notification -->
     <string name="notification_new_session">Nouvelle session démarrée !</string>
     <string name="notification_session_running">Session en cours : %s</string>
+    <string name="running_session_list_title">Course</string>
+    <string name="training_session_list_title">Training</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_dark_mode_label">Mode sombre</string>
 </resources>

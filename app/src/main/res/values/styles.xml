@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/white</item>
 
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="colorSecondary">@color/colorAccent</item>
@@ -14,14 +15,19 @@
 
         <item name="colorError">@color/snackbar_error_background</item>
 
-        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorBackground">@color/light_background</item>
         <item name="colorOnBackground">@color/colorPrimaryDark</item>
+
+
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/colorPrimary</item>
 
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
         <item name="android:textColorSecondary">@android:color/secondary_text_light</item>
         <item name="android:textColorTertiary">@android:color/tertiary_text_light</item>
 
         <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
+        <item name="toolbarStyle">@style/Theme.Runalytics.Toolbar</item>
     </style>
 
     <!-- Base dark theme. -->
@@ -38,20 +44,32 @@
 
         <item name="colorError">@color/snackbar_error_background</item>
 
-        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:colorBackground">@color/dark_background</item>
         <item name="colorOnBackground">@color/white</item>
+
+        <item name="colorSurface">@color/colorPrimary</item>
+        <item name="colorOnSurface">@color/white</item>
 
         <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
         <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
         <item name="android:textColorTertiary">@android:color/tertiary_text_dark</item>
 
         <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
+        <item name="toolbarStyle">@style/Theme.Runalytics.Toolbar</item>
     </style>
 
     <style name="Theme.Runalytics.Text.Large" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/large_text_size</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Theme.Runalytics.Settings" parent="Theme.AppCompat">
+        <item name="android:layout_height">@dimen/settings_item_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/settings_item_margin</item>
+        <item name="android:layout_marginEnd">@dimen/settings_item_margin</item>
+        <item name="android:textAppearance">@style/Theme.Runalytics.Text.Large</item>
     </style>
 
     <style name="Theme.Runalytics.Text.Large.Error">
@@ -79,7 +97,19 @@
     </style>
 
     <style name="Theme.Runalytics.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
-        <item name="colorAccent">?android:attr/colorPrimary</item>
+        <item name="colorAccent">?attr/colorAccent</item>
     </style>
+
+    <style name="Theme.Runalytics.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="titleTextColor">?attr/colorOnSurface</item>
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
+    <style name="Theme.Runalytics.Divider" parent="Theme.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/base_separator_color</item>
+    </style>
+
 
 </resources>

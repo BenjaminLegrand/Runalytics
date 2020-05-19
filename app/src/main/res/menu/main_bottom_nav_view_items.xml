@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sessionListFragment"
+        android:icon="@drawable/ic_running"
+        android:title="@string/running_session_list_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/trainingListFragment"
+        android:icon="@drawable/ic_training"
+        android:title="@string/training_session_list_title"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings_title"
+        app:showAsAction="ifRoom" />
+</menu>

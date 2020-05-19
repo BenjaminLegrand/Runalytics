@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/sessionFragment"
         android:name="fr.legrand.runalytics.presentation.ui.session.running.SessionFragment"
-        android:label="sessionFragment"/>
+        android:label="sessionFragment" />
 
     <fragment
         android:id="@+id/sessionListFragment"
@@ -17,4 +17,12 @@
             android:id="@+id/action_sessionListFragment_to_sessionFragment"
             app:destination="@id/sessionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/trainingListFragment"
+        android:name="fr.legrand.runalytics.presentation.ui.training.TrainingListFragment"
+        android:label="TrainingListFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="fr.legrand.runalytics.presentation.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
