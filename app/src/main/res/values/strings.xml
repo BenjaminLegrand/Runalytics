@@ -3,7 +3,7 @@
 
     <!--    Session list-->
     <string name="view_session_list_item_duration_format">Durée : %s</string>
-    <string name="unknown_duration">Inconnue</string>
+    <string name="view_session_list_item_duration_unknown">Durée inconnue</string>
 
     <!--    Duration -->
     <string name="duration_hms_format">%02dh %02dm %02ds</string>
@@ -31,11 +31,15 @@
     <string name="fragment_session_location_waiting_text">En attente de localisation</string>
     <string name="fragment_session_low_speed_text">Vitesse insuffisante</string>
 
-<!--    Session notification -->
+    <!--    Session notification -->
     <string name="notification_new_session">Nouvelle session démarrée !</string>
     <string name="notification_session_running">Session en cours : %s</string>
     <string name="running_session_list_title">Course</string>
+
+    <!--  Training  -->
     <string name="training_session_list_title">Training</string>
+
+    <!--  Settings  -->
     <string name="settings_title">Paramètres</string>
     <string name="settings_dark_mode_label">Mode sombre</string>
 </resources>

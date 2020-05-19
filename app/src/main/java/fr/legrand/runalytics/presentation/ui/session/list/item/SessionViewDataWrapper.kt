@@ -19,6 +19,9 @@ class SessionViewDataWrapper(
     private val locations = session.locations.map { RALocationViewDataWrapper(it) }
 
     fun getDurationText(context: Context): String {
+        if(session.startDate <= 0L || session.endDate <= 0L){
+            return context.getString(R.string.view_session_list_item_duration_unknown)
+        }
         val time = TimeUtils.extractTimeText(context, (session.endDate - session.startDate) / MS_TO_S)
         return context.getString(R.string.view_session_list_item_duration_format, time)
     }
