@@ -5,7 +5,7 @@ import androidx.navigation.ui.setupWithNavController
 import fr.legrand.runalytics.R
 import fr.legrand.runalytics.presentation.ui.base.BaseNavActivity
 import fr.legrand.runalytics.presentation.ui.main.navigator.MainActivityNavigatorListener
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.activity_main_bottom_nav_view
 import org.koin.androidx.scope.currentScope
 import org.koin.core.parameter.parametersOf
 

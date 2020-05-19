@@ -16,7 +16,7 @@
         android:drawablePadding="@dimen/base_padding"
         android:gravity="center"
         android:text="@string/fragment_session_low_accuracy_text"
-        android:textAppearance="@style/Theme.Runalytics.Text.Large.Error"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Large.Error"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:drawablePadding="@dimen/base_padding"
         android:gravity="center"
         android:text="@string/fragment_session_location_waiting_text"
-        android:textAppearance="@style/Theme.Runalytics.Text.Large.Error"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Large.Error"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
         android:drawableStart="@drawable/ic_warning"
         android:drawablePadding="@dimen/base_padding"
         android:text="@string/fragment_session_low_speed_text"
-        android:textAppearance="@style/Theme.Runalytics.Text.Large.Error"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Large.Error"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         android:layout_marginTop="@dimen/base_margin"
         android:padding="@dimen/base_padding"
         android:text="@string/fragment_session_duration_label"
-        android:textAppearance="@style/Theme.Runalytics.Text.Small"
+        android:textAppearance="@style/TexteAppearance.Runalytics.Text.Small"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_duration_text"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_warning_bottom_barrier" />
 
@@ -74,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="@style/Theme.Runalytics.Text.Headline"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Headline"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_distance_label"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_duration_label"
         tools:text="00:58:45" />
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/base_padding"
         android:text="@string/fragment_session_distance_label"
-        android:textAppearance="@style/Theme.Runalytics.Text.Small"
+        android:textAppearance="@style/TexteAppearance.Runalytics.Text.Small"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_distance_text"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_duration_text" />
 
@@ -102,7 +102,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="@style/Theme.Runalytics.Text.Headline"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Headline"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_current_km_duration_label"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_distance_label"
         tools:text="1.28 km" />
@@ -120,7 +120,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/base_padding"
         android:text="@string/fragment_session_current_km_duration_label"
-        android:textAppearance="@style/Theme.Runalytics.Text.Small"
+        android:textAppearance="@style/TexteAppearance.Runalytics.Text.Small"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_current_km_duration_text"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_distance_text" />
 
@@ -129,7 +129,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="@style/Theme.Runalytics.Text.Headline"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Headline"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_last_km_duration_label"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_current_km_duration_label"
         tools:text="06:05" />
@@ -147,7 +147,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/base_padding"
         android:text="@string/fragment_session_last_km_duration_label"
-        android:textAppearance="@style/Theme.Runalytics.Text.Small"
+        android:textAppearance="@style/TexteAppearance.Runalytics.Text.Small"
         app:layout_constraintBottom_toTopOf="@id/fragment_session_last_km_duration_text"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_current_km_duration_text" />
 
@@ -156,7 +156,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textAppearance="@style/Theme.Runalytics.Text.Headline"
+        android:textAppearance="@style/TextAppearance.Runalytics.Text.Headline"
         app:layout_constraintTop_toBottomOf="@id/fragment_session_last_km_duration_label"
         tools:text="07:12" />
 
@@ -166,63 +166,6 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="fragment_session_last_km_duration_text,fragment_session_last_km_duration_label" />
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/fragment_session_chart"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/base_double_margin"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_chart_switch"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_last_km_duration_text" />
-
-    <TextView
-        android:id="@+id/fragment_session_data_list_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/base_double_margin"
-        android:padding="@dimen/base_padding"
-        android:text="@string/fragment_session_data_list_label"
-        android:textAppearance="@style/Theme.Runalytics.Text.Small"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_data_list"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_last_km_duration_text" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_session_data_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_chart_switch"
-        app:layout_constraintTop_toBottomOf="@id/fragment_session_data_list_label"
-        tools:listitem="@layout/view_session_location_item" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/fragment_session_data_list_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="fragment_session_data_list,fragment_session_data_list_label" />
-
-    <TextView
-        android:id="@+id/fragment_session_chart_switch_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/base_double_margin"
-        android:text="@string/fragment_session_chart_switch"
-        android:textAppearance="@style/Theme.Runalytics.Text.Large"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_start_button"
-        app:layout_constraintEnd_toStartOf="@id/fragment_session_chart_switch"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <Switch
-        android:id="@+id/fragment_session_chart_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/base_double_margin"
-        android:theme="@style/Theme.Runalytics.Switch"
-        app:layout_constraintBottom_toTopOf="@id/fragment_session_start_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/fragment_session_chart_switch_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/fragment_session_start_button"

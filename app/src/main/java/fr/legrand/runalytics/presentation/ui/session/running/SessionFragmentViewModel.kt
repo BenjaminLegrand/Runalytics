@@ -26,7 +26,6 @@ class SessionFragmentViewModel(
     private val disposable = CompositeDisposable()
     val errorEvent = SingleLiveEvent<Throwable>()
     val sessionSaved = SingleLiveEvent<Unit>()
-    val sessionUpdate = MutableLiveData<SessionViewDataWrapper>()
     val sessionState = MutableLiveData<SessionState>()
     val sessionTimer = MutableLiveData<Triple<Long, Long, Long>>()
     val traveledDistance = MutableLiveData<Float>()
@@ -71,8 +70,6 @@ class SessionFragmentViewModel(
                 sessionState.postValue(it.first)
                 if (it.first == SessionState.VALID) {
                     val session = it.second
-                    val wrapper = SessionViewDataWrapper(session)
-                    sessionUpdate.postValue(wrapper)
                     traveledDistance.postValue(session.traveledDistance / M_TO_KM)
                     session.kmTimeList.lastOrNull()?.let {
                         currentKmTime.postValue(it)

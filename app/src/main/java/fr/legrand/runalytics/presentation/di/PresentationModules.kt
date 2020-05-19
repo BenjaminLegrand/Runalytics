@@ -14,7 +14,6 @@ import fr.legrand.runalytics.presentation.component.notification.NotificationCom
 import fr.legrand.runalytics.presentation.ui.session.list.SessionListFragmentViewModel
 import fr.legrand.runalytics.presentation.ui.session.list.ui.SessionListAdapter
 import fr.legrand.runalytics.presentation.ui.session.running.SessionFragmentViewModel
-import fr.legrand.runalytics.presentation.ui.session.running.item.SessionLocationListAdapter
 import io.reactivex.subjects.PublishSubject
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -31,7 +30,6 @@ private val viewModelModule = module {
 
 private val adapterModule = module {
     factory { SessionListAdapter() }
-    factory { SessionLocationListAdapter() }
 }
 
 private val componentModule = module {

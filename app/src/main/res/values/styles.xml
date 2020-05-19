@@ -1,98 +1,52 @@
 <resources>
 
     <!-- Base light theme. -->
-    <style name="LightTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/light_color_primary</item>
 
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-
-        <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="colorSecondary">@color/colorAccent</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <item name="colorError">@color/snackbar_error_background</item>
+        <item name="colorPrimaryDark">@color/light_gray</item>
 
         <item name="android:colorBackground">@color/light_background</item>
-        <item name="colorOnBackground">@color/colorPrimaryDark</item>
 
+        <item name="colorAccent">@color/light_color_accent</item>
+        <item name="colorOnAccent">@color/white</item>
 
-        <item name="colorSurface">@color/white</item>
-        <item name="colorOnSurface">@color/colorPrimary</item>
+        <item name="primaryTextColor">@android:color/primary_text_light</item>
+        <item name="secondaryTextColor">@android:color/secondary_text_light</item>
 
-        <item name="android:textColorPrimary">@android:color/primary_text_light</item>
-        <item name="android:textColorSecondary">@android:color/secondary_text_light</item>
-        <item name="android:textColorTertiary">@android:color/tertiary_text_light</item>
+        <item name="dividerColor">@color/light_separator_color</item>
+        <item name="errorColor">@color/base_error_color</item>
 
-        <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
+        <item name="buttonStyle">@style/Theme.Runalytics.Button</item>
         <item name="toolbarStyle">@style/Theme.Runalytics.Toolbar</item>
     </style>
 
-    <!-- Base dark theme. -->
-    <style name="DarkTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="DarkTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/dark_color_primary</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="colorSecondary">@color/colorAccent</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <item name="colorError">@color/snackbar_error_background</item>
+        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
 
         <item name="android:colorBackground">@color/dark_background</item>
-        <item name="colorOnBackground">@color/white</item>
 
-        <item name="colorSurface">@color/colorPrimary</item>
-        <item name="colorOnSurface">@color/white</item>
+        <item name="colorAccent">@color/light_color_accent</item>
+        <item name="colorOnAccent">@color/white</item>
 
-        <item name="android:textColorPrimary">@android:color/primary_text_dark</item>
-        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
-        <item name="android:textColorTertiary">@android:color/tertiary_text_dark</item>
+        <item name="primaryTextColor">@android:color/primary_text_dark</item>
+        <item name="secondaryTextColor">@android:color/secondary_text_dark</item>
 
-        <item name="materialButtonStyle">@style/Theme.Runalytics.Button</item>
+        <item name="dividerColor">@color/dark_separator_color</item>
+        <item name="errorColor">@color/base_error_color</item>
+
+        <item name="buttonStyle">@style/Theme.Runalytics.Button</item>
         <item name="toolbarStyle">@style/Theme.Runalytics.Toolbar</item>
     </style>
 
-    <style name="Theme.Runalytics.Text.Large" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/large_text_size</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
-    <style name="Theme.Runalytics.Settings" parent="Theme.AppCompat">
-        <item name="android:layout_height">@dimen/settings_item_height</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_marginStart">@dimen/settings_item_margin</item>
-        <item name="android:layout_marginEnd">@dimen/settings_item_margin</item>
-        <item name="android:textAppearance">@style/Theme.Runalytics.Text.Large</item>
-    </style>
-
-    <style name="Theme.Runalytics.Text.Large.Error">
-        <item name="android:textColor">@color/text_color_error</item>
-    </style>
-
-    <style name="Theme.Runalytics.Text.Medium" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/medium_text_size</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="Theme.Runalytics.Text.Small" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/small_text_size</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="Theme.Runalytics.Text.Headline" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">@dimen/headline_text_size</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:fontFamily">sans-serif-black</item>
-    </style>
-
-    <style name="Theme.Runalytics.Button" parent="Widget.MaterialComponents.Button">
+    <!--  Themes/Styles  -->
+    <style name="Theme.Runalytics.Button" parent="Widget.AppCompat.Button">
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
@@ -101,14 +55,48 @@
     </style>
 
     <style name="Theme.Runalytics.Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="titleTextColor">?attr/colorOnSurface</item>
-        <item name="android:background">?attr/colorSurface</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.Runalytics.Divider" parent="Theme.AppCompat">
-        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
-        <item name="android:background">@color/base_separator_color</item>
+        <item name="android:background">?attr/dividerColor</item>
+    </style>
+
+    <style name="Theme.Runalytics.SettingsItem" parent="Theme.AppCompat">
+        <item name="android:layout_height">@dimen/settings_item_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/settings_item_margin</item>
+        <item name="android:layout_marginEnd">@dimen/settings_item_margin</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runalytics.Text.Large</item>
+    </style>
+
+    <!--  TextAppearances -->
+    <style name="TextAppearance.Runalytics.Text.Large" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Runalytics.Text.Large.Error">
+        <item name="android:textColor">?attr/errorColor</item>
+    </style>
+
+    <style name="TextAppearance.Runalytics.Text.Medium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+    </style>
+
+    <style name="TexteAppearance.Runalytics.Text.Small" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+    </style>
+
+    <style name="TextAppearance.Runalytics.Text.Headline" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/headline_text_size</item>
+        <item name="android:textColor">?attr/primaryTextColor</item>
+        <item name="android:fontFamily">sans-serif-black</item>
     </style>
 
 

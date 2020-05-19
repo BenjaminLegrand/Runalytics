@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorOnPrimary" format="color|reference" />
+    <attr name="colorOnAccent" format="color|reference" />
+    <attr name="primaryTextColor" format="color|reference" />
+    <attr name="secondaryTextColor" format="color|reference" />
+    <attr name="dividerColor" format="color|reference" />
+    <attr name="errorColor" format="color|reference" />
+</resources>
