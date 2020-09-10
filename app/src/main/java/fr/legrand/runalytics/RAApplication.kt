@@ -5,7 +5,6 @@ import fr.legrand.runalytics.data.di.dataModules
 import fr.legrand.runalytics.presentation.di.presentationModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import timber.log.Timber
 
 class RAApplication : Application() {
     override fun onCreate() {

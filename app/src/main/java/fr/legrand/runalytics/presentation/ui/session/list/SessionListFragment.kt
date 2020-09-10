@@ -8,7 +8,8 @@ import fr.legrand.runalytics.presentation.ui.base.BaseNavFragment
 import fr.legrand.runalytics.presentation.ui.session.list.navigator.SessionListFragmentNavigatorListener
 import fr.legrand.runalytics.presentation.ui.session.list.ui.SessionListAdapter
 import fr.legrand.runalytics.presentation.utils.observeSafe
-import kotlinx.android.synthetic.main.fragment_session_list.*
+import kotlinx.android.synthetic.main.fragment_session_list.fragment_session_list_recycler_view
+import kotlinx.android.synthetic.main.fragment_session_list.fragment_session_list_start_session
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

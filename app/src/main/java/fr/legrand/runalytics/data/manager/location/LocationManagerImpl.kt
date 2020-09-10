@@ -3,7 +3,11 @@ package fr.legrand.runalytics.data.manager.location
 import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
-import com.google.android.gms.location.*
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
 import fr.legrand.runalytics.data.component.log.LogComponent
 import fr.legrand.runalytics.data.values.LocationValues
 import io.reactivex.Observable

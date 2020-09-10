@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/fragment_settings_dark_mode_label"
-        style="@style/Theme.Runalytics.Settings"
+        style="@style/Theme.Runalytics.SettingsItem"
         android:layout_width="0dp"
         android:text="@string/settings_dark_mode_label"
         app:layout_constraintEnd_toStartOf="@id/fragment_settings_dark_mode_switch"
@@ -27,6 +27,7 @@
     <View
         android:id="@+id/fragment_settings_dark_mode_divider"
         style="@style/Theme.Runalytics.Divider"
+        android:layout_width="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_settings_dark_mode_label" />
 
